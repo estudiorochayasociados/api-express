@@ -8,6 +8,7 @@ const checkToken = (req,res,next) => {
     }
 }
 
+const userPassword = 'userpassword2010';
 const adminPassword = 'faAr2010';
 
 module.exports = {
