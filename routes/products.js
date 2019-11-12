@@ -50,7 +50,7 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/show/:id', auth.jwtVerify, (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (err) {
             res.sendStatus(403)
         } else {
@@ -64,7 +64,7 @@ router.get('/show/:id', auth.jwtVerify, (req, res) => {
 
 
 router.post('/create', auth.jwtVerify, (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (err) {
             res.sendStatus(403)
         } else {
@@ -79,7 +79,7 @@ router.post('/create', auth.jwtVerify, (req, res) => {
 
 
 router.put('/edit/:id', auth.jwtVerify, (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (err) {
             res.sendStatus(403)
         } else {
@@ -95,7 +95,7 @@ router.put('/edit/:id', auth.jwtVerify, (req, res) => {
 
 
 router.post('/delete', auth.jwtVerify, (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (err) {
             res.sendStatus(403)
         } else {

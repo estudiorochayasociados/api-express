@@ -3,12 +3,14 @@ const checkToken = (req,res,next) => {
     req.token = bearerHeader[1]
     if(req.token) {
         next();
-    } 
+    } else {
+        
+    }
 }
 
-const password = 'faAr2010';
+const adminPassword = 'faAr2010';
 
 module.exports = {
     jwtVerify: checkToken,
-    password : password
+    admin : adminPassword
 };

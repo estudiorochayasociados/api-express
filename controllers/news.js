@@ -3,7 +3,7 @@ const auth = require('../config/auth');
 const jwt = require('jsonwebtoken');
 
 exports.create = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return model.news.create(req.query)
                 .then(function (data) {
@@ -34,7 +34,7 @@ exports.read = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return model.news.update(req.query, { where: { id: req.params.id } })
                 .then(function (data) {
@@ -49,7 +49,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return model.news.destroy({ where: { id: req.query } })
                 .then(function (data) {

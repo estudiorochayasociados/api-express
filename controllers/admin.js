@@ -10,7 +10,7 @@ exports.login = (req, res) => {
             where: req.query
         }).then(function (data) {
             if (data.length != 0) {
-                var token = jwt.sign({ data }, auth.password);
+                var token = jwt.sign({ data }, auth.admin, { expiresIn: '1h' });
                 res.json({ data: data, token: token });
             } else {
                 res.sendStatus(403)
@@ -22,7 +22,7 @@ exports.login = (req, res) => {
 }
 
 exports.create = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return orm.Admin.create(req.query)
                 .then(function (data) {
@@ -32,12 +32,14 @@ exports.create = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
 
 exports.read = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return orm.Admin.findAll({ where: req.query })
                 .then(function (data) {
@@ -47,12 +49,14 @@ exports.read = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
 
 exports.update = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return orm.Admin.update(req.query, { where: { id: req.params.id } })
                 .then(function (data) {
@@ -62,12 +66,14 @@ exports.update = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
 
 exports.delete = (req, res) => {
-    jwt.verify(req.token, auth.password, (err, data) => {
+    jwt.verify(req.token, auth.admin, (err, data) => {
         if (data) {
             return orm.Admin.destroy({ where: { id: req.query } })
                 .then(function (data) {
@@ -77,6 +83,8 @@ exports.delete = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
