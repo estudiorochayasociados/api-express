@@ -4,6 +4,7 @@ const newsRoutes = require('./routes/news');
 const app = express();
 
 app.use(express.json());
+app.set('models', require('./models'));
 
 app.listen(process.env.PORT || 3000);
 

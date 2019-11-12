@@ -44,6 +44,8 @@ exports.update = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
@@ -59,6 +61,8 @@ exports.delete = (req, res) => {
                         res.sendStatus(403)
                     }
                 });
+        } else {
+            res.sendStatus(403)
         }
     });
 };
