@@ -28,7 +28,7 @@ exports.read = (req, res) => {
             if (data.length != 0) {
                 res.json(data)
             } else {
-                res.sendStatus(403)
+                res.json({ error: 'No se pudo realizar la acción.' })
             }
         });
 };
