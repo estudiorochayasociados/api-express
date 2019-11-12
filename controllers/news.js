@@ -10,14 +10,14 @@ exports.create = (req, res) => {
                     if (data.length != 0) {
                         res.json(data)
                     } else {
-                        res.sendStatus(403)
+                        res.json({ error: 'No se pudo realizar la acción.' })
                     }
                 })
                 .catch(error => {
                     res.status(400).json(error);
                 })
         } else {
-            res.sendStatus(403)
+            res.json({ error: 'Token incorrecto o expirado' })
         }
     });
 };
@@ -41,11 +41,11 @@ exports.update = (req, res) => {
                     if (data.length != 0) {
                         res.json(data)
                     } else {
-                        res.sendStatus(403)
+                        res.json({ error: 'No se pudo realizar la acción.' })
                     }
                 });
         } else {
-            res.sendStatus(403)
+            res.json({ error: 'Token incorrecto o expirado' })
         }
     });
 };
@@ -58,11 +58,11 @@ exports.delete = (req, res) => {
                     if (data.length != 0) {
                         res.json(data)
                     } else {
-                        res.sendStatus(403)
+                        res.json({ error: 'No se pudo realizar la acción.' })
                     }
                 });
         } else {
-            res.sendStatus(403)
+            res.json({ error: 'Token incorrecto o expirado' })
         }
     });
 };
