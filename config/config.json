@@ -1,28 +1,28 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "port" : 3309,
-    "database": "api-express",
-    "host": "localhost",
+    "username": "bff24a281cf1e9",
+    "password": "0fd0d9c5",
+    "port": null,
+    "database": "heroku_236c583d06c8f8e",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "port" :  3309,
-    "database": "api-express",
-    "host": "localhost",
+    "username": "bff24a281cf1e9",
+    "password": "0fd0d9c5",
+    "port": null,
+    "database": "heroku_236c583d06c8f8e",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "port" :  3309,
-    "database": "api-express",
-    "host": "localhost",
+    "username": "bff24a281cf1e9",
+    "password": "0fd0d9c5",
+    "port": null,
+    "database": "heroku_236c583d06c8f8e",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql",
     "operatorsAliases": false
   }
